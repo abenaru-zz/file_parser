@@ -8,6 +8,11 @@ class InvalidTypeError(ValueError):
         super(InvalidTypeError, self).__init__(*args)
 
 
+class ValueTooSmallError(ValueError):
+    def __init__(self, *args):
+        super(ValueTooSmallError, self).__init__(*args)
+
+
 class ObjectNotFoundError(IndexError):
     def __init__(self, *args):
         super(ObjectNotFoundError, self).__init__(*args)

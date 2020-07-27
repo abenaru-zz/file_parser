@@ -58,7 +58,7 @@ class SystemLoggingHandler(Validatable, Executable):
 
     @staticmethod
     def __input(message):
-        input(f'{message} -> ')
+        return input(f'{message} -> ')
 
     @staticmethod
     def __validate_color(name: str) -> str:

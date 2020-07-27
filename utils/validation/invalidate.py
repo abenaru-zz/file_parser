@@ -1,6 +1,7 @@
+import numbers
 from typing import Tuple, Any, Iterable
 
-from utils.validation.custom_errors import InvalidTypeError, NameLengthError, ObjectNotFoundError
+from utils.validation.custom_errors import InvalidTypeError, NameLengthError, ObjectNotFoundError, ValueTooSmallError
 
 
 class InvalidationHandler:
@@ -20,4 +21,12 @@ class InvalidationHandler:
     def invalidate_if_not_in(iterable: Iterable, content_info: Tuple[str, Any]) -> Any:
         if content_info[1] not in iterable:
             raise ObjectNotFoundError(f'The provided {content_info[0]} is unregistered.')
+        return content_info[1]
+
+    @staticmethod
+    def invalidate_if_is_smaller_than(
+            number: numbers.Complex, content_info: Tuple[str, numbers.Complex]
+    ) -> numbers.Complex:
+        if content_info[1] < number:
+            raise ValueTooSmallError(f'The provided {content_info[0]} is too small: minimum is {number}')
         return content_info[1]
