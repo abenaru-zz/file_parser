@@ -33,8 +33,8 @@ def main() -> None:
     logger = SystemLoggingHandler('green', 'System')
     logger(print, 'Starting Simbiose Debug Log parser...')
 
-    original_file_path = logger(input, 'Insert the path of the file to be parsed: ')
-    new_file_path = logger(input, f'Insert the path of the file to be generated from "{original_file_path}": ')
+    original_file_path = logger(input, 'Insert the path of the file to be parsed')
+    new_file_path = logger(input, f'Insert the path of the file to be generated from "{original_file_path}"')
 
     logger(print, f'Instantiating the original file: "{original_file_path}"...')
     original_file = FileHandler(original_file_path)
@@ -53,7 +53,7 @@ def main() -> None:
 
 def terminate() -> None:
     logger = SystemLoggingHandler('red', 'System')
-    answer = logger(input, 'Do you wish to terminate the application? (Y/N): ').lower().strip()
+    answer = logger(input, 'Do you wish to terminate the application? (Y/N)').lower().strip()
 
     if answer == 'y':
         exit()
